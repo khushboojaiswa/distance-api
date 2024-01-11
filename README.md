@@ -1,66 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Project README: Distance API
+Problem Overview
+Problem Name: Distance API for Mobile App
+Problem Statement:
+Develop a REST API to manage geographical coordinates (latitude and longitude) for a mobile app.
+The API should handle operations like saving, updating, soft deleting, and viewing coordinates.
+Screens and Features
+Screen 1
+Screen Name: Screen 1
+Controls:
+Enter Latitude
+Enter Longitude
+Buttons:
+Save: Save the entered latitude and longitude to the database.
+Update: Update the existing entry in the database.
+View: Display all entries from the database.
+Functionality:
+Save Button: Save the latitude and longitude to the database.
+Update Button: Update the existing entry in the database and validate for existing coordinates.
+Delete Button: Perform a soft delete on the entry in the database.
+View Button: Retrieve and display all entries from the database.
+Screen 2
+Screen Name: Screen 2
+Button:
+Calculate: Calculate the distance of the user in KM/miles based on user preference.
+Functionality:
+The calculated distance is returned.
+Project Setup
+Clone Repository:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+bash
+Copy code
+git clone <repository-url>
+cd <project-directory>
+Install Dependencies:
 
-## About Laravel
+bash
+Copy code
+composer install
+Configure Environment:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Copy the .env.example file to .env and update the database configuration.
+Run Migrations:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+bash
+Copy code
+php artisan migrate
+Start Laravel Development Server:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+bash
+Copy code
+php artisan serve
+Access API:
 
-## Learning Laravel
+API is accessible at http://localhost:8000/api.
+API Endpoints
+Save Coordinates:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+POST /api/coordinates
+Request Body: { "latitude": 12.345, "longitude": 67.890 }
+Update Coordinates:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+PUT /api/coordinates/{id}
+Request Body: { "latitude": 54.321, "longitude": 98.765 }
+Soft Delete Coordinates:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+DELETE /api/coordinates/{id}
+View All Coordinates:
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+GET /api/coordinates
+Testing with Postman
+Open Postman and create a new request.
+Set request details (method, URL, headers, and body if needed).
+Click "Send" to test the API endpoint.
+View the response in Postman.
+Additional Information
+For advanced features, error handling, and authentication, refer to the Laravel documentation.
+Customize the code and configuration based on specific project requirements.
